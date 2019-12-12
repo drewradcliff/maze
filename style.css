@@ -1,3 +1,16 @@
 #row {
     display: flex;
 }
+
+#row > div {
+    height: 50px;
+    width: 50px;
+    background-color: lightblue;
+}
+
+#player {
+    height: 50px;
+    width: 50px;
+    background-color: gold;
+    position: absolute;
+}
