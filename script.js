@@ -17,7 +17,6 @@ const map = [
     "WWWWWWWWWWWWWWWWWWWWW",
 ];
 
-let r, c
 let playerPosition = []
 let playerTop, playerLeft
 
@@ -42,19 +41,19 @@ const initGame = () => {
                 playerTop = row*50
                 playerLeft = col*50
 
-                newCell.style.backgroundColor = 'lime'
+                newCell.dataset.type = 'start'
             }
             // cell is wall
             else if (map[row][col] === 'W') {
-                newCell.style.backgroundColor = 'gray'
+                newCell.dataset.type = 'wall'
             }
             // cell is finish
             else if (map[row][col] === 'F') {
-                newCell.style.backgroundColor = 'red'
+                newCell.dataset.type = 'finish'
             }
             // cell is empty
             else {
-                newCell.style.backgroundColor = 'lightblue'
+                newCell.dataset.type = 'empty'
             }
         }
     }
@@ -69,8 +68,6 @@ const initGame = () => {
 
     // event listener
     document.addEventListener('keydown', move);
-
-    console.log('bang')
 }
 
 // move player
@@ -107,7 +104,6 @@ function move(e) {
             playerLeft += 50
         }
     }
-    console.log(playerPosition)
     player.style.top = playerTop + "px";
     player.style.left = playerLeft + "px";
 }

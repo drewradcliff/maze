@@ -6,7 +6,15 @@ html {
 }
 
 body {
-    margin: 0;
+    background-color: dimgray
+}
+
+h1 {
+
+}
+
+#map {
+    position: relative;
 }
 
 #row {
@@ -21,6 +29,23 @@ body {
 #player {
     height: 50px;
     width: 50px;
-    background-color: gold;
+    /* background-color: gold; */
+    background: url(img/knight-exp.png);
     position: absolute;
+}
+
+div[data-type = 'start'] {
+    background-color: lime;
+}
+
+div[data-type = 'wall'] {
+    background: url(img/lava.png);
+}
+
+div[data-type = 'finish'] {
+    background-color: red;
+}
+
+div[data-type = 'empty'] {
+    background: url(img/rock.png);
 }
