@@ -1,3 +1,14 @@
+html {
+    box-sizing: border-box;
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
 #row {
     display: flex;
 }
@@ -5,7 +16,6 @@
 #row > div {
     height: 50px;
     width: 50px;
-    background-color: lightblue;
 }
 
 #player {
