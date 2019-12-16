@@ -1,20 +1,32 @@
-html {
-    box-sizing: border-box;
-}
-  *, *:before, *:after {
-    box-sizing: inherit;
+body {
+    background-color: black;
+    display: flex;
 }
 
-body {
-    background-color: dimgray
+.title {
+    width: 200px;
+}
+
+#text-map {
+    max-width: 175px;
+    /* width: 200px; */
+    max-height: 400px;
 }
 
 h1 {
+    color: white;
+    font-size: 40px;
+}
 
+h3, p {
+    color: white;
 }
 
 #map {
     position: relative;
+    /* height: 750px; */
+    /* width: 950px; */
+    margin: 10px;
 }
 
 #row {

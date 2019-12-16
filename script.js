@@ -1,23 +1,18 @@
 // initialize maze map
-const map = [
-    "WWWWWWWWWWWWWWWWWWWWW",
-    "W   W     W     W W W",
-    "W W W WWW WWWWW W W W",
-    "W W W   W     W W   W",
-    "W WWWWWWW W WWW W W W",
-    "W         W     W W W",
-    "W WWW WWWWW WWWWW W W",
-    "W W   W   W W     W W",
-    "W WWWWW W W W WWW W F",
-    "S     W W W W W W WWW",
-    "WWWWW W W W W W W W W",
-    "W     W W W   W W W W",
-    "W WWWWWWW WWWWW W W W",
-    "W       W       W   W",
-    "WWWWWWWWWWWWWWWWWWWWW",
-];
+// const default_map = 'WWWWWWWWWWWWWWWWWW,F       W  W     W,WWWWWWW W WWWWWW W,S W   W        W W,W W W WWWWWWW WW W,W W W       W    W,W W WWWWWWW WWWW W,W W W     W      W,W W WWWWW WWWWWWWW,W                W,WWWWWWWWWWWWWWWWWW'
+const default_map = 'WWWWWWWWWWWWWWWWWWWWW,W   W     W     W W W,W W W WWW WWWWW W W W,W W W   W     W W   W,W WWWWWWW W WWW W W W,W         W     W W W,W WWW WWWWW WWWWW W W,W W   W   W W     W W,W WWWWW W W W WWW W F,S     W W W W W W WWW,WWWWW W W W W W W W W,W     W W W   W W W W,W WWWWWWW WWWWW W W W,W       W       W   W,WWWWWWWWWWWWWWWWWWWWW'
+// document.getElementById('text-map').textContent = default_map
+let map = document.getElementById('text-map').textContent = default_map.split(',')
+
+const button = document.getElementById('mapButton')
+button.onclick = function() {
+    map = document.getElementById('text-map').value.split(',')
+    document.getElementById("map").innerHTML = ""
+    initGame()
+}
 
 let playerPosition = []
+let finishPosition = []
 let playerTop, playerLeft
 
 const mapDiv = document.body.querySelector('#map')
@@ -50,6 +45,7 @@ const initGame = () => {
             // cell is finish
             else if (map[row][col] === 'F') {
                 newCell.dataset.type = 'finish'
+                finishPosition = [row, col]
             }
             // cell is empty
             else {
@@ -106,6 +102,12 @@ function move(e) {
     }
     player.style.top = playerTop + "px";
     player.style.left = playerLeft + "px";
+
+    // finish maze detected
+    if (playerPosition.toString() === finishPosition.toString()) {
+        alert('You completed the maze!')
+        location.reload()
+    }
 }
 
 initGame()
